@@ -1,0 +1,14 @@
+<div class="row top-buffer">
+	<div class="col-xs-12" align="center">
+	<form name="loginForm" class="form-inline ng-pristine ng-valid" ng-submit="ctrl.login()">
+		<div class="form-group">
+		<label for="name">Logowanie</label>
+		<input type="email" id="name" class="form-control" ng-model="ctrl.loginData.name" placeholder="Wpisz swój email"/>
+		<input type="password" id="password" class="form-control" ng-model="ctrl.loginData.password" required placeholder="Hasło"/>
+		</div>
+		<input type="submit" class="btn btn-primary" value="Loguj"/>
+		<br/><br/>
+		<span ng-hide="loginForm.$valid" class="label label-warning">uzupełnij dane</span>
+	</form>
+	</div>			
+</div>
