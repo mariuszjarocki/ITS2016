@@ -1,3 +1,12 @@
+api versions
+------------
+
+- api1.1- (nodeJs)
+- api1.2- (with expressJs) wersja bez front-endu
+
+
+
+
 package.json
 ------------
 
