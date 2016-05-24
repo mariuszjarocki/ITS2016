@@ -1,0 +1,37 @@
+{
+  "name": "ITS",
+  "version": "1.1.2",
+  "description": "Task manager",
+  "main": "server.js",
+  "scripts": {
+    "test": "no-define"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariuszjarocki/ITS2016.git"
+  },
+  "keywords": [
+    "task",
+    "manager",
+    "its"
+  ],
+  "author": "its-group",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/mariuszjarocki/ITS2016/issues"
+  },
+  "devDependencies": {
+    "mongoose": "~4.4.12",
+    "express": "~4.13.4"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.0",
+    "bower": "~1.7.9",
+    "dateformat": "^1.0.12",
+    "express": "~4.13.4",
+    "jsonwebtoken": "~5.7.0",
+    "mongoose": "~4.4.12",
+    "morgan": "~1.7.0",
+    "node-uuid": "~1.4.7"
+  }
+}

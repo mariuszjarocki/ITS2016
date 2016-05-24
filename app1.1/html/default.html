@@ -1,0 +1,55 @@
+<div class="row col-xs-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">Przeglądarka</div>
+		<div class="panel-body">
+			<select ng-model="ctrl.selectedUserId" ng-options="u._id as u.firstName+' '+u.lastName for u in ctrl.users" ng-change="ctrl.displayUser()" class="form-control"></select>
+			<hr>
+			<span ng-bind="ctrl.msg"></span>
+		</div>
+		<div class="panel-footer" align="right">
+			<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Usuń</button>
+			
+			<div id="deleteModal" class="modal fade" role="dialog" align="center">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Usunąć rekord?</h4>
+						</div>
+						<div class="modal-body">
+							<p ng-bind="ctrl.msg"></p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="ctrl.delete()">Usuń</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<div class="row col-xs-12">
+	<form name="insertForm" class="form-inline ng-pristine ng-untouched ng-valid" ng-submit="ctrl.insert()">
+		<div class="panel panel-default">
+		<div class="panel-heading">Nowy użytkownik</div>
+		<div class="form-group panel-body">
+		<input type="email" ng-model="ctrl.user.mail" class="form-control" placeholder="e-mail"/>
+		<input type="text" ng-model="ctrl.user.firstName" class="form-control" required="" placeholder="Imię"/>
+		<input type="text" ng-model="ctrl.user.lastName" class="form-control" required="" placeholder="Nazwisko"/>
+		<span ng-init="ctrl.user.role='1'">
+			<select ng-model="ctrl.user.role" class="form-control">
+				<option value="0">admin</option>
+				<option value="1">normal user</option>
+				<option value="2">guest</option>
+			</select>
+		</span>
+		<input type="submit" value="Nowy" class="btn btn-primary" ng-disabled="insertForm.$invalid"/>
+		<span ng-hide="insertForm.$valid" class="label label-warning">uzupełnij dane</span>
+		</div>
+		</div>
+	</form>
+</div>

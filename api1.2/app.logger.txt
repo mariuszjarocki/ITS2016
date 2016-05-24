@@ -1,0 +1,114 @@
+19-04-2016 20:04:09
+-error:router.post is not a function
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 21:04:43
+-error:router.post is not a function
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 21:04:32
+-error:router.post is not a function
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 21:04:51
+-error:router.post is not a function
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 22:04:24
+-error:router.post is not a function
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 22:04:25
+-error:router.post is not a function
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 22:04:54
+-error:Cannot read property 'iat' of undefined
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 22:04:59
+-error:Cannot read property 'iat' of undefined
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 22:04:59
+-error:Cannot read property 'iat' of undefined
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 22:04:00
+-error:Cannot read property 'iat' of undefined
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 22:04:00
+-error:Cannot read property 'iat' of undefined
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 22:04:00
+-error:Cannot read property 'iat' of undefined
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+19-04-2016 23:04:28
+-error:Invalid select() argument. Must be string or object.
+-url:/signIn
+-host:127.0.0.1:5000
+-------------------------------
+
+21-04-2016 00:04:48
+-error:projectModel.task is not a function
+-url:/project/create
+-host:127.0.0.1:5000
+-------------------------------
+
+21-04-2016 00:04:12
+-error:task is not defined
+-url:/project/create
+-host:127.0.0.1:5000
+-------------------------------
+
+21-04-2016 08:04:39
+-error:utils.populate: invalid path. Expected string. Got typeof `undefined`
+-url:/projects
+-host:127.0.0.1:5000
+-------------------------------
+
+21-04-2016 19:04:40
+-error:Cannot read property 'find' of undefined
+-url:/notifications
+-host:127.0.0.1:5000
+-------------------------------
+
+21-04-2016 19:04:30
+-error:project is not defined
+-url:/projects
+-host:127.0.0.1:5000
+-------------------------------
+
+21-04-2016 20:04:24
+-error:Cannot read property 'model' of undefined
+-url:/project/create
+-host:127.0.0.1:5000
+-------------------------------
+
