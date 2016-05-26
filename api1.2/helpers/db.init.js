@@ -1,3 +1,5 @@
+//Zbierzność imion,nazwisk i maili jest przypadkowa(dane testowe)
+
 var User = require('../dal/models/user.model');
 var Task = require('../dal/models/task.model');
 var Notification = require('../dal/models/notification.model');
