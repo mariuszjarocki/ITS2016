@@ -27,7 +27,7 @@ Server running
 Dodawanie nowej fnkcjonalności
 ------------------------------
 
-W celu dodania nowej funkcjonalności do projektu należy wykonać następujące kroki 
+W celu dodania nowej funkcjonalności do projektu należy wykonać następujące kroki: 
 
 1.Zdefiniować  model 
 
