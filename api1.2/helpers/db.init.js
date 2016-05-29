@@ -132,7 +132,7 @@ module.exports = function() {
         new Task.model({
             title: 'Task3',
             description: 'implementacja metody 3',
-            type: Task.type.INCIDENT,
+            type: Task.type.INCIDEND,
             status: Task.type.UNRESOLVED,
             creationDate: '03-02-2016 21:10:36',
             startDate: '04-02-2016 10:10:36',
@@ -156,7 +156,7 @@ module.exports = function() {
         new Task.model({
             title: 'Task5',
             description: 'implementacja metody 5',
-            type: Task.type.INCIDENT,
+            type: Task.type.INCIDEND,
             status: Task.status.UNRESOLVED,
             creationDate: '01-02-2016 11:10:36',
             startDate: '01-03-2016 11:10:36',

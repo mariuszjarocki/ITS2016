@@ -8,7 +8,6 @@ module.exports=function(router){
     router.get('/users/',[securityService.role.isAdmin,user.getUsersList]);
     router.put(prefix+'update/:id',user.update);
     router.post(prefix+'create',user.create);
-    router.post(prefix+'create',user.create);
     router.delete(prefix+'remove/:id',user.remove);
     return router;
 }
