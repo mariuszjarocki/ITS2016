@@ -27,12 +27,12 @@ Server running
 Dodawanie nowej fnkcjonalności
 ------------------------------
 
-W celu dodania nowej funkcjonalności do projektu należy wykonać następujące kroki 
+W celu dodania nowej funkcjonalności do projektu należy wykonać następujące kroki: 
 
 1.Zdefiniować  model 
 
 - Opis:
-	Aby zdefiniować model należy przejść do katalogu  api/dal/models a następnie zdefiniować plik z modelem (analogicznie do już isntniejących).
+	Aby zdefiniować model należy przejść do katalogu  api\dal\models a następnie zdefiniować plik z modelem (analogicznie do już isntniejących).
 
 2.Utworzyć controller
 

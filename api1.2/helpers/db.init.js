@@ -1,3 +1,5 @@
+//Zbierzność imion,nazwisk i maili jest przypadkowa(dane testowe)
+
 var User = require('../dal/models/user.model');
 var Task = require('../dal/models/task.model');
 var Notification = require('../dal/models/notification.model');
@@ -40,7 +42,7 @@ module.exports = function() {
                 first: 'Jan',
                 last: 'Kowalski'
             },
-            email: 'jan@kowalski.com',
+            email: 'jan@kowalski.noeamil',
             password: 'test',
             role: User.role.ADMIN,
             tasks: [],
@@ -51,7 +53,7 @@ module.exports = function() {
                 first: 'Mariusz',
                 last: 'Nowak'
             },
-            email: 'marius@nowak.com',
+            email: 'marius@nowak.noemail',
             password: 'test',
             role: User.role.DEV,
             _tasks: [],
@@ -63,7 +65,7 @@ module.exports = function() {
                 last: 'Przybysz'
             },
             password: 'test',
-            email: 'antoni@przybysz',
+            email: 'antoni@przybysz.noeamil',
             role: User.role.DEV,
             _tasks: [],
             _notifications: []
@@ -74,7 +76,7 @@ module.exports = function() {
                 last: 'Zawadzki'
             },
             password: 'test',
-            email: 'mariusz@zawadzki',
+            email: 'mariusz@zawadzki,noemail',
             role: User.role.ADMIN,
             _tasks: [],
             _notifications: []
@@ -85,7 +87,7 @@ module.exports = function() {
                 last: 'Borowiecki'
             },
             password: 'test',
-            email: 'antoni@borowiecki',
+            email: 'antoni@borowiecki.noemail',
             role: User.role.DEV,
             _tasks: [],
             _notifications: []
@@ -96,7 +98,7 @@ module.exports = function() {
                 last: 'Borowski'
             },
             password: 'test',
-            email: 'zenon@borowski',
+            email: 'zenon@borowski.noemail',
             role: User.role.DEV,
         })].forEach(function(user) {
             user.save();
