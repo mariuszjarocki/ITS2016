@@ -1,0 +1,9 @@
+<div ng-repeat="task in tasks">
+    <div class="callout-panel" ng-class="{ 'callout-panel-danger': task.status == 0, 'callout-panel-default': task.status == 1, 'callout-panel-warning': task.status == 2, 'callout-panel-success': task.status == 3 }">
+        <div class="row">
+            <div class="text-center">
+                <h3> {{task.title}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

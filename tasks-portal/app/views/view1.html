@@ -1,1 +1,18 @@
-<p>This is the partial for view 1.</p>
+<div class="row">
+    <div class="col-md-3">
+        <h2>UNRESOLVED</h2>
+        <div tasks-directive tasks="vm.tasksUnresolved"></div>
+    </div>
+    <div class="col-md-3">
+        <h2>TO DO</h2>
+        <div tasks-directive tasks="vm.tasksToDo"></div>
+    </div>
+    <div class="col-md-3">
+        <h2>IN PROGRESS</h2>
+        <div tasks-directive tasks="vm.tasksInProgress"></div>
+    </div>
+    <div class="col-md-3">
+        <h2>DONE</h2>
+        <div tasks-directive tasks="vm.tasksDone"></div>
+    </div>
+</div>

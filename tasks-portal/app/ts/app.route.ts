@@ -9,11 +9,13 @@ module TaskMgrApp {
             var viewsFolder = "views/";
             $routeProvider.when('/view1', {
                 templateUrl: viewsFolder + 'view1.html',
-                controller: 'View1Ctrl'
+                controller: 'View1Ctrl',
+                controllerAs: 'vm'
             });
             $routeProvider.when('/view2', {
                 templateUrl: viewsFolder + 'view2.html',
-                controller: 'View2Ctrl'
+                controller: 'View2Ctrl',
+                controllerAs: 'vm'
             });
 
             $routeProvider.otherwise({ redirectTo: '/view1' });

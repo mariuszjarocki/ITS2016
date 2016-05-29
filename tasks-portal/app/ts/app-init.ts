@@ -18,9 +18,10 @@ angular.module('TaskMgrApp', [
 
 ((): void => {
   angular.module('TaskMgrApp.services', []);
+  angular.module('TaskMgrApp.directives', []);
+  
   angular.module('TaskMgrApp.controllers', ['TaskMgrApp.services']);
   
-  angular.module('TaskMgrApp.directives', []);
   var app = angular.module("TaskMgrApp", [
     'ngRoute',
     'TaskMgrApp.controllers',
