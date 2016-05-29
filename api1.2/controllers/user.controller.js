@@ -6,7 +6,6 @@ var auth=require('../services/security.service');
 module.exports={
  //create user
  create:function(req,resp){
-     console.log(req.body);
     var _user=new user.model(req.body);
     _user.save(function(err){
       err ? resp.status(500).json({ error: [{ error: err.message  }] }) : resp.status(200).send();

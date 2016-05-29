@@ -13,7 +13,9 @@ var user = db.mongoose.model('User', {
     },
     email: String,
     password: String,
-    role: Number
+    role: Number,
+    _tasks:[{type:ObjectId,ref:'User'}],
+    _notifications:[{type:ObjectId,ref:'Notification'}]
 });
 
 module.exports = {

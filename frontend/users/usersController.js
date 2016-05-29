@@ -58,7 +58,7 @@ define(['../app', 'grid', 'lodash', 'moment', '../finders/usersFinder', '../serv
 
             modalInstance.result.then(function (selectedItem, firstName) {
                 $scope.selected = selectedItem;
-                $scope.selected.role = 0;
+                console.log($scope.selected);
                 var user = {
                     name: {
                         first: $scope.selected.firstName,
@@ -68,10 +68,8 @@ define(['../app', 'grid', 'lodash', 'moment', '../finders/usersFinder', '../serv
                     password: $scope.selected.password,
                     role: $scope.selected.role == "Admin" ? 0 : 1
                 };
-                console.log(user);
-                $http.post('http://localhost:5000/user/create', user).success(function (data, status) {
+                usersServices.createUser(user).success(function(data){
                     console.log(data);
-                    console.log(status);
                 });
             }, function () {
             });
