@@ -12,7 +12,8 @@ process.argv.forEach(function (val, index, array) {
 });
 
 server.app.emit('testEmit');
-server.app.use(bodyParser.urlencoded({extended:false}));
+server.app.use(bodyParser.json());
+server.app.use(bodyParser.urlencoded({extended: true}));
 server.app.use(serverRoute);
 server.app.use(errorHandling.handler);
 server.app.listen(server.config.port);
