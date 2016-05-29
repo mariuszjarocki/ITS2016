@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         typescript: {
             base: {
                 src: ['app/ts/**/*.ts'],
-                dest: 'app/app-concat.js',
+                dest: 'app/app-concatenated.js',
                 options: {
                     module: 'amd', //or commonjs 
                     target: 'es5', //or es3 

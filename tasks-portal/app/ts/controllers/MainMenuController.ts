@@ -1,6 +1,6 @@
 /// <reference path="..\..\..\node_modules\definitely-typed-angular\angular.d.ts" />
 
-namespace myApp.Controllers {
+namespace TaskMgrApp.Controllers {
     'use strict';
 
     export class MainMenuController {
@@ -13,6 +13,6 @@ namespace myApp.Controllers {
     }
 
     angular
-        .module('myApp')
+        .module('TaskMgrApp.controllers')
         .controller('MainMenuController', MainMenuController);
 }
