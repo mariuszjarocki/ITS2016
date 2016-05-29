@@ -8,3 +8,5 @@ tmp
 app/app-concatenated.d.ts
 app/app-concatenated.js
 app/app-concatenated.js.map
+app/app-concatenated.css
+app/less/compiledCss/
