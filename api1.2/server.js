@@ -11,7 +11,7 @@ process.argv.forEach(function (val, index, array) {
   }
 });
 
-server.app.emit('testEmit');
+//server.app.emit('testEmit');
 server.app.use(bodyParser.json());
 server.app.use(bodyParser.urlencoded({extended: true}));
 server.app.use(serverRoute);
