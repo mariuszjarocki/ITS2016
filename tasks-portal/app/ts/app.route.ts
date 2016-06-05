@@ -7,9 +7,9 @@ module TaskMgrApp {
         static configureRoutes($routeProvider: ng.route.IRouteProvider, $locationProvider: ng.ILocationProvider) {
             $locationProvider.hashPrefix('!');
             var viewsFolder = "views/";
-            $routeProvider.when('/view1', {
-                templateUrl: viewsFolder + 'view1.html',
-                controller: 'View1Ctrl',
+            $routeProvider.when('/dashboard', {
+                templateUrl: viewsFolder + 'TasksDashboard.html',
+                controller: 'TasksDashboardController',
                 controllerAs: 'vm'
             });
             $routeProvider.when('/view2', {
@@ -18,7 +18,7 @@ module TaskMgrApp {
                 controllerAs: 'vm'
             });
 
-            $routeProvider.otherwise({ redirectTo: '/view1' });
+            $routeProvider.otherwise({ redirectTo: '/dashboard' });
         }
     }
 }

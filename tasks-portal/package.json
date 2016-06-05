@@ -8,6 +8,7 @@
   "devDependencies": {
     "bower": "^1.7.7",
     "definitely-typed-angular": "^1.0.1",
+    "definitely-typed-angular-ui-bootstrap": "^1.0.1",
     "definitely-typed-jquery": "^1.0.0",
     "grunt": "^1.0.1",
     "grunt-contrib-concat": "^1.0.1",

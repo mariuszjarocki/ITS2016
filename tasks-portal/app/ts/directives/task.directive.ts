@@ -1,10 +1,14 @@
 /// <reference path="..\..\..\node_modules\definitely-typed-angular\angular.d.ts" />
+/// <reference path="..\models\Task.ts" />
+
 
 module TaskMgrApp.Directives {
     export class TasksDirective implements ng.IDirective {
         restrict = 'AE';
         scope = {
-            tasks: '='
+            tasks: '=',
+            selectedTask: '=',
+            setSelectedTask: '&'
         }
         templateUrl = 'views/tasksDirective.html';
         
@@ -12,6 +16,7 @@ module TaskMgrApp.Directives {
         }
 
         link = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes, ctrl: any) => {
+            // console.log(scope);
         }
 
         static factory(): ng.IDirectiveFactory {
