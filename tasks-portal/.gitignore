@@ -5,8 +5,11 @@ bower_components/
 tmp
 .DS_Store
 .idea
-app/app-concatenated.d.ts
 app/app-concatenated.js
-app/app-concatenated.js.map
+app/ts-concatenated.d.ts
+app/ts-concatenated.js
+app/ts-concatenated.js.map
+app/vendors-concatenated.js
 app/app-concatenated.css
 app/less/compiledCss/
+

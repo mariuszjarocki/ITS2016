@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         typescript: {
             base: {
                 src: ['app/ts/**/*.ts'],
-                dest: 'app/app-concatenated.js',
+                dest: 'app/ts-concatenated.js',
                 options: {
                     module: 'amd', //or commonjs 
                     target: 'es5', //or es3 
@@ -31,10 +31,21 @@ module.exports = function (grunt) {
             },
         },
         concat: {
-            dist: {
+            css: {
                 src: ['app/less/compiledCss/*.css'],
                 dest: 'app/app-concatenated.css',
             },
+            jsapp: {
+                src: ['app/ts-concatenated.js', 'app/components/version/version.js', 'app/components/version/version-directive.js', 'app/components/version/interpolate-filter.js'],
+                dest: 'app/app-concatenated.js',
+            },
+            jsvendors: {
+                src: ['app/bower_components/jquery/dist/jquery.min.js', 
+                    'app/bower_components/bootstrap/dist/js/bootstrap.min.js',
+                    'app/bower_components/angular/angular.js', 
+                    'app/bower_components/angular-route/angular-route.js'],
+                dest: 'app/vendors-concatenated.js',
+            }
         }
     });
 
