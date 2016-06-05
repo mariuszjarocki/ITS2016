@@ -1,6 +1,8 @@
 /// <reference path="..\..\..\node_modules\definitely-typed-angular\angular.d.ts" />
 /// <reference path="..\..\..\node_modules\definitely-typed-angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
 /// <reference path="../services/tasks.service.ts" />
+/// <reference path="../typings/angular-toastr.d.ts" />
+
 
 'use strict';
 import TaskStatus = TaskMgrApp.Models.TaskStatusEnum;
@@ -16,8 +18,8 @@ module TaskMgrApp.Controllers {
     public tasksUnresolved: Task[];
     public selectedTask: Task;
 
-    static $inject = ['TasksService', '$uibModal'];
-    constructor(private tasksService: TaskMgrApp.Services.ITasksService, private $uibModal: angular.ui.bootstrap.IModalService) {
+    static $inject = ['TasksService', '$uibModal', 'toastr'];
+    constructor(private tasksService: TaskMgrApp.Services.ITasksService, private $uibModal: angular.ui.bootstrap.IModalService, private toastr: angular.toastr.IToastrService) {
       this.loadTasksList();
     }
 
@@ -38,13 +40,15 @@ module TaskMgrApp.Controllers {
       });
       modalInstance.result.then((updatedTask: Task) => {
         this.tasksService.updateTask(updatedTask)
-        .then(arg => {
-          console.log(arg);
-        });
+          .then(arg => {
+            this.loadTasksList();
+            this.toastr.success("Successfully saved Task.", "Saved");
+          });
       },
-      () => {
-        console.log('Modal dismissed at: ' + new Date());
-      });
+        (reason) => {
+          console.log('Modal dismissed at: ' + new Date() + ". Reason:");
+          console.log(reason);
+        });
     }
 
     private loadTasksList = () => {

@@ -28,7 +28,7 @@ module TaskMgrApp.Services{
         }
         
         updateTask = (taskToUpdate: Task) => {
-            var result = this.$http.post(Config.TaskUpdateUrl + taskToUpdate._id, taskToUpdate);
+            var result = this.$http.put(Config.TaskUpdateUrl + taskToUpdate._id, taskToUpdate);
             return result;
         }
     }

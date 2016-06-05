@@ -44,7 +44,9 @@ module.exports = function (grunt) {
                     'app/bower_components/bootstrap/dist/js/bootstrap.min.js',
                     'app/bower_components/angular/angular.js', 
                     'app/bower_components/angular-route/angular-route.js',
-                    'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'],
+                    'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+                    'app/bower_components/angular-toastr/dist/angular-toastr.tpls.min.js',
+                    'app/bower_components/angular-animate/angular-animate.min.js'],
                 dest: 'app/vendors-concatenated.js',
             }
         }

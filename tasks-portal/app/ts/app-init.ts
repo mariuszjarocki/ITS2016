@@ -10,6 +10,8 @@
   
   var app = angular.module("TaskMgrApp", [
     'ngRoute',
+    'ngAnimate', 
+    'toastr',
     'ui.bootstrap',
     'TaskMgrApp.controllers',
     'TaskMgrApp.services',
