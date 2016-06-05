@@ -25,6 +25,7 @@ module.exports={
  //get user
  get:function(req,resp){
       user.model.find({_id:ObjectId(req.params.id)},function(err,user) {
+    console.log(err);
          err ? resp.status(500).json({ error: [{ error: err.message  }] }) : resp.status(200).json({user:user});
      });
   

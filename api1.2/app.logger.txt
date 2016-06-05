@@ -112,3 +112,81 @@
 -host:127.0.0.1:5000
 -------------------------------
 
+29-05-2016 22:05:56
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/1
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 22:05:20
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/1
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 22:05:42
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/1
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 23:05:57
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/12
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 23:05:39
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/12
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 23:05:27
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/12
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 23:05:37
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/12
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 23:05:06
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/12
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 23:05:44
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/12
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 23:05:47
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/12
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 23:05:56
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/12
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 23:05:02
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/1
+-host:localhost:5000
+-------------------------------
+
+29-05-2016 23:05:06
+-error:Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+-url:/user/12
+-host:localhost:5000
+-------------------------------
+

@@ -21,8 +21,21 @@
     "url": "https://github.com/mariuszjarocki/ITS2016/issues"
   },
   "devDependencies": {
+    "ag-grid": "^4.2.5",
+    "angular": "^1.5.5",
+    "angular-amd": "^0.2.1",
+    "angular-ui-bootstrap": "^1.3.3",
+    "angular-ui-grid": "^3.1.1",
+    "angular-ui-router": "^0.3.0",
+    "bootstrap": "^3.3.6",
+    "cors": "^2.7.1",
+    "express": "~4.13.4",
+    "jquery": "^2.2.4",
+    "lodash": "^4.13.1",
+    "moment": "^2.13.0",
     "mongoose": "~4.4.12",
-    "express": "~4.13.4"
+    "requirejs": "^2.2.0",
+    "timelinejs": "^2.35.6"
   },
   "dependencies": {
     "body-parser": "~1.15.0",

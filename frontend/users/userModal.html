@@ -1,0 +1,44 @@
+<div ng-controller="usersCtrl">
+    <div class="modal-header">
+        <h3 class="modal-title">Create user</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="first">First name:</label>
+            <input type="text" ng-model="firstName" class="form-control" id="first">
+        </div>
+        <div class="form-group">
+            <label for="last">Last name:</label>
+            <input type="text" ng-model="lastName" class="form-control" id="last">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" ng-model="email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" ng-model="password" class="form-control" id="pwd">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Role: </label>
+            <div class="btn-group" uib-dropdown is-open="status.isopen">
+                <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle
+                        ng-disabled="disabled">
+                    Choose role <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                    <li ng-repeat="item in items">
+                        <a ng-click="selected.role = item;">
+                            {{ item }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button"
+                    ng-click="ok(); selected.firstName = firstName; selected.lastName = lastName; selected.email = email; selected.password= password;">
+                OK
+            </button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </div>
