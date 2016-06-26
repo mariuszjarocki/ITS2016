@@ -55,6 +55,22 @@
                                 </md-option>
                             </md-select>
                         </md-input-container>
+                        <md-input-container class="fullwidth">
+                            <label>Project</label>
+                            <md-select placeholder="Assign to project" ng-model="vm.task._project" md-on-close="vm.clearProjectSearchTerm()"
+                                       data-md-container-class="selectdemoSelectHeader">
+                                <md-select-header class="demo-select-header">
+                                    <input ng-model="vm.projectSearchTerm"
+                                           type="search"
+                                           placeholder="Search for project..."
+                                           class="demo-header-searchbox _md-text"
+                                           ng-keydown="vm.onSearchChange($event)">
+                                </md-select-header>
+                                <md-option ng-value="project" ng-repeat="project in vm.projects">
+                                    {{project.name}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
 
                     </div>
                     <div class="col-md-7">

@@ -7,5 +7,7 @@ module TaskMgrApp.Services{
         public static TaskUpdateUrl = "http://localhost:5000/task/update/"
 
         public static UsersGetUrl = "http://localhost:5000/users";
+
+        public static ProjectsGetUrl = "http://localhost:5000/projects";
     }
 }

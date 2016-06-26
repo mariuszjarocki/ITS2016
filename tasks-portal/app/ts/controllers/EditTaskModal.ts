@@ -8,7 +8,9 @@ namespace TaskMgrApp.Controllers {
     export class EditTaskModalController {
 
         public users: User[];
+        public projects: Project[];
         public userSearchTerm: string;
+        public projectSearchTerm: string;
 
         public startDatePopup = {
             selectedDate: new Date()
@@ -21,15 +23,15 @@ namespace TaskMgrApp.Controllers {
         public statuses = TaskMgrApp.Models.TaskStatusesItems;
         public types = TaskMgrApp.Models.TaskTypesItems;
 
-        static $inject = ['$scope', '$mdDialog', '$filter', 'task', 'UsersService'];
+        static $inject = ['$scope', '$mdDialog', '$filter', 'task', 'UsersService', 'projectsService'];
         constructor(private $scope: ng.IScope, private $mdDialog: angular.material.IDialogService, private $filter: ng.IFilterService,
-            public task: Models.Task, private usersService: Services.IUsersService) {
+            public task: Models.Task, private usersService: Services.IUsersService, private projectsService: Services.IProjectsService) {
             this.startDatePopup.selectedDate = new Date(this.task.startDate);
             this.endDatePopup.selectedDate = new Date(this.task.endDate);
-            this.loadUsers();
             this.userSearchTerm = '';
-
-
+            this.projectSearchTerm = '';
+            this.loadUsers();
+            this.loadProjects();
         }
 
         /**
@@ -63,12 +65,6 @@ namespace TaskMgrApp.Controllers {
         };
 
         public loadUsers = () => {
-
-            var searchboxes = $('input');
-            searchboxes.on('keydown', function (ev) {
-                ev.stopPropagation();
-            });
-
             if (!this.users) {
                 this.usersService.getUsers().then(response => {
                     this.users = response.data.users;
@@ -79,7 +75,19 @@ namespace TaskMgrApp.Controllers {
                     }
                 });
             }
+        }
 
+        public loadProjects = () => {
+            if (!this.projects) {
+                this.projectsService.getProjects().then(response => {
+                    this.projects = response.data.projects;
+                    if (this.task._project) {
+                        // dirty workaround to get contractor selected on dropdown when loading projects.
+                        var selectedproject = this.$filter('filter')(this.projects, { _id: this.task._project });
+                        this.task._project = selectedproject[0];
+                    }
+                });
+            }
         }
 
         public clearUserSearchTerm = () => {
