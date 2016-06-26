@@ -1,3 +1,5 @@
+/// <reference path="app/bower_components/angular-aria/angular-aria.js" />
+/// <reference path="app/bower_components/angular-material/angular-material.min.js" />
 module.exports = function (grunt) {
 
     // Project configuration.
@@ -8,8 +10,8 @@ module.exports = function (grunt) {
                 src: ['app/ts/**/*.ts'],
                 dest: 'app/ts-concatenated.js',
                 options: {
-                    module: 'amd', //or commonjs 
-                    target: 'es5', //or es3 
+                    module: 'amd', //or commonjs
+                    target: 'es5', //or es3
                     sourceMap: true,
                     declaration: true
                 }
@@ -19,7 +21,7 @@ module.exports = function (grunt) {
             // production config is also available
             development: {
                 options: {
-                    // Specifies directories to scan for @import directives when parsing. 
+                    // Specifies directories to scan for @import directives when parsing.
                     // Default value is the directory of the source, which is probably what you want.
                     paths: ["app/less/"],
                 },
@@ -36,18 +38,23 @@ module.exports = function (grunt) {
                 dest: 'app/app-concatenated.css',
             },
             jsapp: {
-                src: ['app/ts-concatenated.js', 'app/components/version/version.js', 'app/components/version/version-directive.js', 'app/components/version/interpolate-filter.js'],
+                src: ['app/ts-concatenated.js',
+                    'app/components/version/version.js',
+                    'app/components/version/version-directive.js',
+                    'app/components/version/interpolate-filter.js'],
                 dest: 'app/app-concatenated.js',
             },
             jsvendors: {
-                src: ['app/bower_components/jquery/dist/jquery.min.js', 
+                src: ['app/bower_components/jquery/dist/jquery.min.js',
                     'app/bower_components/bootstrap/dist/js/bootstrap.min.js',
-                    'app/bower_components/angular/angular.js', 
-                    'app/bower_components/angular-route/angular-route.js',
+                    'app/bower_components/angular/angular.min.js',
+                    'app/bower_components/angular-aria/angular-aria.min.js',
+                    'app/bower_components/angular-route/angular-route.min.js',
                     'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
                     'app/bower_components/angular-toastr/dist/angular-toastr.tpls.min.js',
                     'app/bower_components/angular-animate/angular-animate.min.js',
-                    'app/bower_components/angular-xeditable/dist/js/xeditable.js'
+                    'app/bower_components/angular-material/angular-material.min.js',
+                    'app/bower_components/angular-messages/angular-messages.min.js',
                 ],
                 dest: 'app/vendors-concatenated.js',
             }

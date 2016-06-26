@@ -1,5 +1,4 @@
 /// <reference path="..\..\..\node_modules\definitely-typed-angular\angular.d.ts" />
-/// <reference path="..\..\..\node_modules\definitely-typed-angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
 /// <reference path="../models/uimodels.ts" />
 /// <reference path="..\Models\Task.ts" />
 
@@ -7,23 +6,24 @@ namespace TaskMgrApp.Controllers {
     'use strict';
 
     export class EditTaskModalController {
+
+        public users: User[];
         public startDatePopup = {
-            opened: false,
             selectedDate: new Date()
         };
 
         public endDatePopup = {
-            opened: false,
             selectedDate: new Date()
         };
 
         public statuses = TaskMgrApp.Models.TaskStatusesItems;
         public types = TaskMgrApp.Models.TaskTypesItems;
 
-        static $inject = ['$uibModalInstance', '$filter', 'task'];
-        constructor(private $uibModalInstance: angular.ui.bootstrap.IModalServiceInstance, private $filter: ng.IFilterService, public task: TaskMgrApp.Models.Task) {
+        static $inject = ['$mdDialog', '$filter', 'task', 'UsersService'];
+        constructor(private $mdDialog: angular.material.IDialogService, private $filter: ng.IFilterService, public task: Models.Task, private usersService: Services.IUsersService) {
             this.startDatePopup.selectedDate = new Date(this.task.startDate);
             this.endDatePopup.selectedDate = new Date(this.task.endDate);
+            this.loadUsers();
         }
 
         /**
@@ -32,21 +32,14 @@ namespace TaskMgrApp.Controllers {
         public save() {
             this.task.startDate = this.startDatePopup.selectedDate.toISOString();
             this.task.endDate = this.endDatePopup.selectedDate.toISOString();
-            this.$uibModalInstance.close(this.task);
+            this.$mdDialog.hide(this.task);
         }
 
         /**
          * cancel
          */
         public cancel() {
-            this.$uibModalInstance.dismiss('cancel');
-        }
-
-        public openStartDatePopup = () => {
-            this.startDatePopup.opened = true;
-        }
-        public openEndDatePopup = () => {
-            this.endDatePopup.opened = true;
+            this.$mdDialog.cancel('cancel');
         }
 
         public showStatus = () => {
@@ -62,6 +55,14 @@ namespace TaskMgrApp.Controllers {
                 return selected[0].text;
             else return 'Not set';
         };
+
+        public loadUsers = () => {
+            if (!this.users) {
+                this.usersService.getUsers().then(response => {
+                    this.users = response.data.users;
+                });
+            }
+        }
     }
 
     angular

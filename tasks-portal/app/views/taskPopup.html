@@ -1,60 +1,67 @@
-<div class="modal-header taskmgr-modal-header">
-    <span aria-hidden="true" class="glyphicon glyphicon-edit pull-right" style="font-size: 2.1em;"></span>
-    <h3 class="modal-title" editable-text="vm.task.title">
-        {{vm.task.title}}
-    </h3>
-</div>
-<div class="modal-body">
-    <div class="row">
+<md-dialog aria-label="Edit task popup" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h3 class="modal-title">
+                    {{vm.task.title}}
+                </h3>
 
-        <div class="col-md-5">
-            <div class="row">
-                <div class="col-lg-12">
-                    <label>Start date</label>
-                    <br />
-                    <a href="#" editable-bsdate="vm.startDatePopup.selectedDate" e-is-open="vm.startDatePopup.opened" 
-                       e-ng-click="vm.openStartDatePopup()" e-datepicker-popup="dd/MM/yyyy">
-                        {{ (vm.startDatePopup.selectedDate | date:"dd/MM/yyyy") || 'empty' }}
-                    </a>
-                </div>
-                <div class="col-lg-12">
-                    <label>End date</label>
-                    <br />
-                    <a href="#" editable-bsdate="vm.endDatePopup.selectedDate" e-is-open="vm.endDatePopup.opened"
-                       e-ng-click="vm.openEndDatePopup()" e-datepicker-popup="dd/MM/yyyy">
-                        {{ (vm.endDatePopup.selectedDate | date:"dd/MM/yyyy") || 'empty' }}
-                    </a>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="vm.cancel()">
+                    <span class="glyphicon glyphicon-remove" style="font-size: 2.1em"></span>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div class="row">
+
+                    <div class="col-md-5">
+                        <label>Start date</label>
+                        <md-datepicker class="fullwidth" ng-model="vm.startDatePopup.selectedDate" md-placeholder="Enter start date"></md-datepicker>
+                        <br />
+                        <label>End date</label>
+                        <md-datepicker class="fullwidth" ng-model="vm.endDatePopup.selectedDate" md-placeholder="Enter end date"></md-datepicker>
+                        <br />
+                        <md-input-container class="fullwidth">
+                            <label>Status</label>
+                            <md-select ng-model="vm.task.status">
+                                <md-option ng-repeat="s in vm.statuses" value="{{s.value}}">
+                                    {{s.text}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="fullwidth">
+                            <label>Type</label>
+                            <md-select ng-model="vm.task.type">
+                                <md-option ng-repeat="t in vm.types" value="{{t.value}}">
+                                    {{t.text}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="fullwidth">
+                            <label>Contractor</label>
+                            <md-select placeholder="Assign to contractor" ng-model="vm.task._contractor" md-on-open="vm.loadUsers()" style="min-width: 200px;">
+                                <md-option ng-value="user._id" ng-repeat="user in vm.users">{{user.name.last + ' ' + user.name.first}}</md-option>
+                            </md-select>
+                        </md-input-container>
+
+                    </div>
+                    <div class="col-md-7">
+                        <md-input-container>
+                            <label>Description</label>
+                            <textarea ng-model="vm.task.description" rows="7" cols="40" required></textarea>
+                        </md-input-container>
+                    </div>
+
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <label>Status</label>
-                    <br />
-                    <a href="#" editable-select="vm.task.status" e-ng-options="s.value as s.text for s in vm.statuses">
-                        {{ vm.showStatus() }}
-                    </a>
-                </div>
-                <div class="col-lg-12">
-                    <label>Type</label>
-                    <br />
-                    <a href="#" editable-select="vm.task.type" e-ng-options="s.value as s.text for s in vm.types">
-                        {{ vm.showType() }}
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-7">
-            <label>Description</label>
-            <a href="#" editable-textarea="vm.task.description" e-rows="7" e-cols="40">
-                <pre>{{ vm.task.description || 'no description' }}</pre>
-            </a>
-        </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
 
-    </div>
-</div>
-<div class="modal-footer">
-    <button class="btn btn-default" type="button" ng-click="vm.cancel()">Cancel</button>
-    <button class="btn btn-success btn-lg" type="button" ng-click="vm.save()">Save</button>
-</div>
-_id: string, title: string, description: string, type: number, status: number, creationDate: Date, startDate: Date, endDate:
-Date, _project: any, _creator: string, _contractor: string, __v: number
+            <md-button type="button" ng-click="vm.cancel()">Cancel</md-button>
+            <button type="submit" class="md-button md-raised md-primary" ng-click="vm.save()">Save</button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
