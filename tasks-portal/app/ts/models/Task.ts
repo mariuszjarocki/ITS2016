@@ -10,10 +10,10 @@ module TaskMgrApp.Models {
         endDate: string,
         _project: any,
         _creator: string,
-        _contractor: string,
+        _contractor: Models.User,
         __v: number
     }
-    
+
     export enum TaskTypeEnum {
         STANDARD_REQUEST = 0,
         INCIDEND = 1,

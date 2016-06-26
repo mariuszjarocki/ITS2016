@@ -21,7 +21,6 @@ module TaskMgrApp.Controllers {
 
 
         static $inject = ['TasksService', 'toastr', '$mdDialog', '$mdMedia'];
-        /* @ngInject */
         constructor(private tasksService: TaskMgrApp.Services.ITasksService,
             private toastr: angular.toastr.IToastrService,
             private $mdDialog: angular.material.IDialogService,

@@ -8,6 +8,8 @@
 
     angular.module('TaskMgrApp.controllers', ['TaskMgrApp.services']);
 
+    angular.module('TaskMgrApp.filters', []);
+
     var app = angular.module("TaskMgrApp", [
         'ngRoute',
         'ngAnimate',
@@ -16,7 +18,8 @@
         'TaskMgrApp.controllers',
         'TaskMgrApp.services',
         'TaskMgrApp.directives',
-        'TaskMgrApp.version'
+        'TaskMgrApp.version',
+        'TaskMgrApp.filters'
     ]);
     app.config(TaskMgrApp.Routes.configureRoutes);
 })();

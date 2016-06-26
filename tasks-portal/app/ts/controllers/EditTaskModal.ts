@@ -8,6 +8,8 @@ namespace TaskMgrApp.Controllers {
     export class EditTaskModalController {
 
         public users: User[];
+        public userSearchTerm: string;
+
         public startDatePopup = {
             selectedDate: new Date()
         };
@@ -19,11 +21,15 @@ namespace TaskMgrApp.Controllers {
         public statuses = TaskMgrApp.Models.TaskStatusesItems;
         public types = TaskMgrApp.Models.TaskTypesItems;
 
-        static $inject = ['$mdDialog', '$filter', 'task', 'UsersService'];
-        constructor(private $mdDialog: angular.material.IDialogService, private $filter: ng.IFilterService, public task: Models.Task, private usersService: Services.IUsersService) {
+        static $inject = ['$scope', '$mdDialog', '$filter', 'task', 'UsersService'];
+        constructor(private $scope: ng.IScope, private $mdDialog: angular.material.IDialogService, private $filter: ng.IFilterService,
+            public task: Models.Task, private usersService: Services.IUsersService) {
             this.startDatePopup.selectedDate = new Date(this.task.startDate);
             this.endDatePopup.selectedDate = new Date(this.task.endDate);
             this.loadUsers();
+            this.userSearchTerm = '';
+
+
         }
 
         /**
@@ -57,11 +63,31 @@ namespace TaskMgrApp.Controllers {
         };
 
         public loadUsers = () => {
+
+            var searchboxes = $('input');
+            searchboxes.on('keydown', function (ev) {
+                ev.stopPropagation();
+            });
+
             if (!this.users) {
                 this.usersService.getUsers().then(response => {
                     this.users = response.data.users;
+                    if (this.task._contractor) {
+                        // dirty workaround to get contractor selected on dropdown when loading users.
+                        var selectedUser = this.$filter('filter')(this.users, { _id: this.task._contractor._id });
+                        this.task._contractor = selectedUser[0];
+                    }
                 });
             }
+
+        }
+
+        public clearUserSearchTerm = () => {
+            this.userSearchTerm = '';
+        }
+
+        public onSearchChange = (event) => {
+            event.stopPropagation();
         }
     }
 

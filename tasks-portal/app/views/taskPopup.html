@@ -41,8 +41,18 @@
                         </md-input-container>
                         <md-input-container class="fullwidth">
                             <label>Contractor</label>
-                            <md-select placeholder="Assign to contractor" ng-model="vm.task._contractor" md-on-open="vm.loadUsers()" style="min-width: 200px;">
-                                <md-option ng-value="user._id" ng-repeat="user in vm.users">{{user.name.last + ' ' + user.name.first}}</md-option>
+                            <md-select placeholder="Assign to contractor" ng-model="vm.task._contractor" md-on-close="vm.clearUserSearchTerm()"
+                                       data-md-container-class="selectdemoSelectHeader">
+                                <md-select-header class="demo-select-header">
+                                    <input ng-model="vm.userSearchTerm"
+                                           type="search"
+                                           placeholder="Search for user..."
+                                           class="demo-header-searchbox _md-text"
+                                           ng-keydown="vm.onSearchChange($event)">
+                                </md-select-header>
+                                <md-option ng-value="user" ng-repeat="user in vm.users | userFullNameFilter:vm.userSearchTerm">
+                                    {{user.name.last + ' ' + user.name.first}}
+                                </md-option>
                             </md-select>
                         </md-input-container>
 
