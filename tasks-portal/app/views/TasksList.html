@@ -1,0 +1,29 @@
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Creation date</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Project</th>
+            <th>Creator</th>
+            <th>Contractor</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="task in vm.tasks">
+        <tr>
+            <td>{{ task.title }}</td>
+            <td>{{ task.type }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.creationDate }}</td>
+            <td>{{ (task.startDate) }}</td>
+            <td>{{ (task.endDate) }}</td>
+            <td>{{ task._project.name }}</td>
+            <td>{{ task._creator.name.last + ' ' + task._creator.name.first }}</td>
+            <td>{{ task._contractor.name.last + ' ' + task._contractor.name.first }}</td>
+        </tr>
+    </tbody>
+</table>

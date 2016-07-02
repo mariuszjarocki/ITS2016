@@ -12,9 +12,9 @@ module TaskMgrApp {
                 controller: 'TasksDashboardController',
                 controllerAs: 'vm'
             });
-            $routeProvider.when('/view2', {
-                templateUrl: viewsFolder + 'view2.html',
-                controller: 'View2Ctrl',
+            $routeProvider.when('/list', {
+                templateUrl: viewsFolder + 'TasksList.html',
+                controller: 'TasksListController',
                 controllerAs: 'vm'
             });
 

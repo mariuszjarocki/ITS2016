@@ -82,8 +82,7 @@ namespace TaskMgrApp.Controllers {
                 this.projectsService.getProjects().then(response => {
                     this.projects = response.data.projects;
                     if (this.task._project) {
-                        // dirty workaround to get contractor selected on dropdown when loading projects.
-                        var selectedproject = this.$filter('filter')(this.projects, { _id: this.task._project });
+                        var selectedproject = this.$filter('filter')(this.projects, { _id: this.task._project._id });
                         this.task._project = selectedproject[0];
                     }
                 });

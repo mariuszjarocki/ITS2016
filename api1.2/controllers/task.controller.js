@@ -35,7 +35,7 @@ module.exports={
  },
  //get tasks
  getTasksList:function(req,resp){
-   task.model.find({}).populate('_creator _contractor','name email').exec(function(err,tasks) {
+   task.model.find({}).populate('_creator _contractor _project','name email description creationDate').exec(function(err,tasks) {
      err ? resp.status(500).json({ error: [{ error: err.message }] }) : resp.status(200).json({tasks:tasks});
      });
  },
