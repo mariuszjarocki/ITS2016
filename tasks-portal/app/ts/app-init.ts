@@ -21,5 +21,9 @@
         'TaskMgrApp.version',
         'TaskMgrApp.filters'
     ]);
-    app.config(TaskMgrApp.Routes.configureRoutes);
+    app.config(($routeProvider: ng.route.IRouteProvider, $locationProvider: ng.ILocationProvider, $mdThemingProvider: ng.material.IThemingProvider) => {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('teal');
+            TaskMgrApp.Routes.configureRoutes($routeProvider, $locationProvider);
+    });
 })();

@@ -1,5 +1,8 @@
 
-<table class="table table-hover table-striped">
+<div layout="row" layout-align="center center" ng-if="vm.isBusy" id="loader">
+    <md-progress-circular md-diameter="96"></md-progress-circular>
+</div>
+<table class="table table-hover table-striped" ng-if="!vm.isBusy">
     <thead>
         <tr>
             <th>Title</th>
@@ -13,14 +16,14 @@
             <th>Contractor</th>
         </tr>
     </thead>
-    <tbody ng-repeat="task in vm.tasks">
-        <tr>
+    <tbody>
+        <tr ng-repeat="task in vm.tasks" ng-click="vm.setSelectedTask(task)">
             <td>{{ task.title }}</td>
-            <td>{{ task.type }}</td>
-            <td>{{ task.status }}</td>
+            <td>{{ vm.getTextFromEnum(vm.types, task.type) }}</td>
+            <td>{{ vm.getTextFromEnum(vm.statuses, task.status) }}</td>
             <td>{{ task.creationDate }}</td>
-            <td>{{ (task.startDate) }}</td>
-            <td>{{ (task.endDate) }}</td>
+            <td>{{ vm.getDate(task.startDate) | date:'short'}}</td>
+            <td>{{ vm.getDate(task.endDate) | date:'short'}}</td>
             <td>{{ task._project.name }}</td>
             <td>{{ task._creator.name.last + ' ' + task._creator.name.first }}</td>
             <td>{{ task._contractor.name.last + ' ' + task._contractor.name.first }}</td>

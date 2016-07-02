@@ -14,7 +14,7 @@ module TaskMgrApp {
             });
             $routeProvider.when('/list', {
                 templateUrl: viewsFolder + 'TasksList.html',
-                controller: 'TasksListController',
+                controller: 'TasksDashboardController',
                 controllerAs: 'vm'
             });
 

@@ -18,13 +18,15 @@ module TaskMgrApp.Controllers {
         public tasksInProgress: Task[];
         public tasksUnresolved: Task[];
         public selectedTask: Task;
+        public isBusy: boolean;
 
+        public statuses = TaskMgrApp.Models.TaskStatusesItems;
+        public types = TaskMgrApp.Models.TaskTypesItems;
 
-        static $inject = ['TasksService', 'toastr', '$mdDialog', '$mdMedia'];
+        static $inject = ['TasksService', 'toastr', '$mdDialog'];
         constructor(private tasksService: TaskMgrApp.Services.ITasksService,
             private toastr: angular.toastr.IToastrService,
-            private $mdDialog: angular.material.IDialogService,
-            private $mdMedia: angular.material.IMedia) {
+            private $mdDialog: angular.material.IDialogService) {
             this.loadTasksList();
         }
 
@@ -55,6 +57,7 @@ module TaskMgrApp.Controllers {
 
             this.$mdDialog.show(opts)
                 .then((updatedTask: Task) => {
+                    this.isBusy = true;
                     this.tasksService.updateTask(updatedTask).then(arg => {
                         this.loadTasksList();
                         this.toastr.success("Successfully saved Task.", "Saved");
@@ -66,8 +69,21 @@ module TaskMgrApp.Controllers {
                 };
         }
 
-        private loadTasksList = () => {
+        getTextFromEnum = (enumItems: Models.IDropdownItem[], enumValue: number) => {
+            for (let item of enumItems) {
+                if (item.value === enumValue) {
+                    return item.text;
+                }
+            }
+            return '';
+        }
 
+        getDate = (dateString: string) => {
+            return new Date(dateString);
+        }
+
+        private loadTasksList = () => {
+            this.isBusy = true;
             var promise = this.tasksService.getTasks();
             promise.then(callbackArg => {
                 this.tasks = callbackArg.data.tasks;
@@ -83,6 +99,7 @@ module TaskMgrApp.Controllers {
                 this.tasksUnresolved = this.tasks.filter((value, index, array) => {
                     return value.status == TaskStatus.UNRESOLVED;
                 });
+                this.isBusy = false;
             });
         }
     }

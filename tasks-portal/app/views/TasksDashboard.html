@@ -1,4 +1,7 @@
-<div class="row">
+<div layout="row" layout-align="center center" ng-if="vm.isBusy" id="loader">
+    <md-progress-circular md-diameter="96"></md-progress-circular>
+</div>
+<div class="row" ng-if="!vm.isBusy">
     <div class="col-md-3">
         <h2>UNRESOLVED</h2>
         <div tasks-directive tasks="vm.tasksUnresolved" set-selected-task="vm.setSelectedTask(task)"></div>
